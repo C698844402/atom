@@ -25,12 +25,14 @@ class AutoUpdateManager extends EventEmitter {
   }
 
   initialize () {
+    const baseUrl = process.env.ATOM_API_URL || 'https://atom.io/api'
+
     if (process.platform === 'win32') {
       const archSuffix = process.arch === 'ia32' ? '' : `-${process.arch}`
-      this.feedUrl = `https://atom.io/api/updates${archSuffix}?version=${this.version}`
+      this.feedUrl = `${baseUrl}/updates${archSuffix}?version=${this.version}`
       autoUpdater = require('./auto-updater-win32')
     } else {
-      this.feedUrl = `https://atom.io/api/updates?version=${this.version}`;
+      this.feedUrl = `${baseUrl}/updates?version=${this.version}`;
       ({autoUpdater} = require('electron'))
     }
 

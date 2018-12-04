@@ -1,6 +1,7 @@
 trigger:
 - master
 - 1.* # VSTS only supports wildcards at the end
+- jr/exploration
 
 resources:
   containers:
@@ -31,8 +32,6 @@ jobs:
 
   dependsOn:
   - GetReleaseVersion
-  - Windows
-  - Linux
   - macOS
 
   variables:
