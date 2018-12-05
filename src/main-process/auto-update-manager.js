@@ -25,7 +25,7 @@ class AutoUpdateManager extends EventEmitter {
   }
 
   initialize () {
-    const baseUrl = process.env.ATOM_API_URL || 'https://atom.io/api'
+    const baseUrl = process.env.ATOM_API_URL || 'https://atom-io-staging.githubapp.com/api'
 
     if (process.platform === 'win32') {
       const archSuffix = process.arch === 'ia32' ? '' : `-${process.arch}`
