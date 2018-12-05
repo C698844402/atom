@@ -20,11 +20,7 @@ jobs:
     displayName: Update npm
 
   - script: |
-      if [ $IS_RELEASE_BRANCH == "true" ] || [ $IS_SIGNED_ZIP_BRANCH == "true" ]; then
-        script/build --code-sign --compress-artifacts
-      else
-        script/build --compress-artifacts
-      fi
+      script/build --code-sign --compress-artifacts
     displayName: Build Atom
     env:
       IS_RELEASE_BRANCH: $(IsReleaseBranch)
